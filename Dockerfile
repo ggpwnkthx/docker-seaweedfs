@@ -16,6 +16,6 @@ RUN chmod +x /bin/entrypoint.sh
 FROM alpine:3
 RUN apk add --no-cache fuse
 RUN mkdir -p /var/run/docker/plugins/seaweedfs
-COPY --from=builder /usr/bin/weed /usr/bin/
-COPY --from=builder /bin/entrypoint.sh /bin/
+COPY --from=builder /usr/bin/weed /usr/bin/weed
+COPY --from=builder /bin/entrypoint.sh /bin/entrypoint.sh
 ENTRYPOINT [ "/bin/entrypoint.sh" ]
