@@ -18,21 +18,27 @@ RUN apk add --no-cache fuse
 RUN mkdir -p /var/run/docker/plugins/seaweedfs
 COPY --from=builder /usr/bin/weed /usr/bin/weed
 COPY --from=builder /bin/entrypoint.sh /bin/entrypoint.sh
+
 # volume server gprc port
 EXPOSE 18080
 # volume server http port
 EXPOSE 8080
+
 # filer server gprc port
 EXPOSE 18888
 # filer server http port
 EXPOSE 8888
+
 # master server shared gprc port
 EXPOSE 19333
 # master server shared http port
 EXPOSE 9333
+
 # s3 server http port
 EXPOSE 8333
+
 # webdav server http port
 EXPOSE 7333
+
 VOLUME /data
 ENTRYPOINT [ "/bin/entrypoint.sh" ]

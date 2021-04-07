@@ -1,6 +1,4 @@
 #!/bin/sh
-WEED_PUBLIC_URL="${WEED_PUBLIC_URL:-$(hostname)}"
-WEED_PUBLIC_PORT="${WEED_PUBLIC_PORT:-8080}"
 
 isArgPassed() {
   arg="$1"
@@ -30,7 +28,7 @@ case "$1" in
 	;;
 
   'volume')
-  	ARGS="-ip=$(hostname) -publicUrl=$WEED_PUBLIC_URL:$WEED_PUBLIC_PORT -dir=/data -max=0"
+  	ARGS="-ip=$(hostname) -dir=/data -max=0"
   	if isArgPassed "-max" "$@"; then
   	  ARGS="-dir=/data"
   	fi
